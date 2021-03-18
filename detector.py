@@ -28,6 +28,29 @@ def conv_helper(fragment, kernel):
             result += fragment[row,col] *  kernel[row,col]
     return result
 
+# Edgar
+def convolution(image, kernel):
+    """Aplica una convolucion sin padding (valida) de una dimesion 
+    y devuelve la matriz resultante de la operación
+    """
+
+    image_row, image_col = image.shape #asigna alto y ancho de la imagen 
+    kernel_row, kernel_col = kernel.shape #asigna alto y ancho del filtro
+   
+    output = np.zeros(image.shape) #matriz donde guardo el resultado
+   
+    for row in range(image_row):
+        for col in range(image_col):
+                output[row, col] = conv_helper(
+                                    image[row:row + kernel_row, 
+                                    col:col + kernel_col],kernel)
+             
+    plt.imshow(output, cmap='gray')
+    plt.title("Output Image using {}X{} Kernel".format(kernel_row, kernel_col))
+    plt.show()
+ 
+    return output
+
 def main(name):
     path = r'D:\Work\SemanaTec\2do semestre\1er periodo\Tareas\semena-tec-tools-vision-master\semena-tec-tools-vision-master\Scripts\Proyecto Vision\Turquia.jpg'
     img = cv2.imread(path)
