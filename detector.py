@@ -1,4 +1,11 @@
 """
+By Abhisek Jana
+code taken from https://github.com/adeveloperdiary/blog/tree/master/Computer_Vision/Sobel_Edge_Detection
+blog http://www.adeveloperdiary.com/data-science/computer-vision/how-to-implement-sobel-edge-detection-using-python-from-scratch/
+
+Modificado por Benjamin Valdes
+
+
 Equipo 3:
 
 David Román Velasco - A01639645
@@ -6,9 +13,11 @@ Edgar Cruz Vazquez - A01730577
 Sergio Pedroza - A01636537
 Diego Velázquez - A01632240
 
+
 Fuentes de referencias:
 
 Errodringer. (13 octubre 2020). 😃 Reconocimiento Facial 🧒 PYTHON - OPENCV (3 minutos en Español) *2021* [Video]. Recuperado de: https://www.youtube.com/watch?v=i7J40MnQUSg
+
 
 """
 
@@ -53,6 +62,10 @@ def convolution(image, kernel):
 
 # David
 def main(name):
+    """Es la función que le corresponde a la primera opción del menu, la cual convierte
+    una imagen a escala de grises y llama a la función convolution(image, kernel)
+    """
+    
     path = r'D:\Work\SemanaTec\2do semestre\1er periodo\Tareas\semena-tec-tools-vision-master\semena-tec-tools-vision-master\Scripts\Proyecto Vision\Turquia.jpg'
     img = cv2.imread(path)
     gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
@@ -63,6 +76,8 @@ def main(name):
     resultado = convolution(gray, kernel)
 
 def escala_grises(name):
+    """Es uyna función que convierte una imagen a escala de grises"""
+    
     path = r'D:\Work\SemanaTec\2do semestre\1er periodo\Tareas\semena-tec-tools-vision-master\semena-tec-tools-vision-master\Scripts\Proyecto Vision\Turquia.jpg'
     img = cv2.imread(path)
     gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
@@ -70,14 +85,16 @@ def escala_grises(name):
     cv2.imshow(name, gray) 
 
 # Diego
-"""Funcion detectar_cara
-En la funcion mediante el cascade clasifier busca encontrar una cara al momento de activar la camara
-de la computadora o ordenador, en cuenta la encuentra la enmarca dentro de un cuadro azul de 4px y despliega el texto
-"Face Detected"
-Input:La funcion no recibe nada.
-Output:La funcion despliega la camara intentando hacer la deteccion de cara
-""""
 def detectar_cara():
+    """
+    Funcion detectar_cara
+    En la funcion mediante el cascade clasifier busca encontrar una cara al momento de activar la camara
+    de la computadora o ordenador, en cuenta la encuentra la enmarca dentro de un cuadro azul de 4px y despliega el texto
+    "Face Detected"
+    Input:La funcion no recibe nada.
+    Output:La funcion despliega la camara intentando hacer la deteccion de cara
+    """
+    
     haar_file = 'haarcascade_frontalface_default.xml'
 
     face_cascade = cv2.CascadeClassifier(haar_file)
@@ -96,6 +113,10 @@ def detectar_cara():
         if key == 27:
             break
 # Sergio
+"""
+Se despliega el menu principal del programa en el cual el usuario puede elegir las acciones que quiera realizar
+"""
+
 menu = 0
 while menu != 3:
     print("""--------MENU--------
