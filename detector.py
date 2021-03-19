@@ -70,6 +70,13 @@ def escala_grises(name):
     cv2.imshow(name, gray) 
 
 # Diego
+"""Funcion detectar_cara
+En la funcion mediante el cascade clasifier busca encontrar una cara al momento de activar la camara
+de la computadora o ordenador, en cuenta la encuentra la enmarca dentro de un cuadro azul de 4px y despliega el texto
+"Face Detected"
+Input:La funcion no recibe nada.
+Output:La funcion despliega la camara intentando hacer la deteccion de cara
+""""
 def detectar_cara():
     haar_file = 'haarcascade_frontalface_default.xml'
 
